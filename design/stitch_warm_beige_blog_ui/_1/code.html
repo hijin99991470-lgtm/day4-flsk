@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#f6f3f2",
+            "on-primary-fixed-variant": "#584324",
+            "on-tertiary-fixed-variant": "#464745",
+            "on-secondary-fixed-variant": "#474836",
+            "secondary": "#5e604d",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-background": "#1b1c1c",
+            "inverse-on-surface": "#f3f0f0",
+            "surface-container": "#f0eded",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#5e5f5d",
+            "surface-container-high": "#eae8e7",
+            "on-error-container": "#93000a",
+            "tertiary-fixed-dim": "#c7c6c4",
+            "secondary-fixed-dim": "#c8c8b0",
+            "on-secondary-fixed": "#1b1d0e",
+            "outline": "#7f766a",
+            "primary-fixed-dim": "#e1c299",
+            "surface-tint": "#725a39",
+            "background": "#fbf9f8",
+            "secondary-fixed": "#e4e4cc",
+            "on-error": "#ffffff",
+            "secondary-container": "#e1e1c9",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#5b4526",
+            "on-tertiary-container": "#484a48",
+            "primary-container": "#d2b48c",
+            "inverse-surface": "#303030",
+            "on-primary-fixed": "#281801",
+            "surface-variant": "#e4e2e1",
+            "on-secondary-container": "#636451",
+            "inverse-primary": "#e1c299",
+            "surface-container-highest": "#e4e2e1",
+            "on-surface-variant": "#4d453c",
+            "surface": "#fbf9f8",
+            "tertiary-fixed": "#e3e2e0",
+            "error": "#ba1a1a",
+            "primary-fixed": "#feddb3",
+            "primary": "#725a39",
+            "surface-bright": "#fbf9f8",
+            "outline-variant": "#d1c5b8",
+            "on-tertiary-fixed": "#1a1c1a",
+            "on-surface": "#1b1c1c",
+            "tertiary-container": "#b9b9b6",
+            "surface-dim": "#dcd9d9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-gap": "16px",
+            "inner-padding": "12px",
+            "container-padding": "20px",
+            "section-margin": "32px"
+          },
+          "fontFamily": {
+            "h2": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "h1": ["Inter"]
+          },
+          "fontSize": {
+            "h2": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "label-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "h1": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #FAF9F6;
+    }
+    .soft-shadow {
+      box-shadow: 0 10px 25px -5px rgba(210, 180, 140, 0.1), 0 8px 10px -6px rgba(210, 180, 140, 0.05);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface antialiased bg-[#FAF9F6] min-h-screen flex flex-col">
+<!-- TopAppBar Section -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#FAF9F6] dark:bg-stone-950 border-b border-stone-200/50 dark:border-stone-800/50 shadow-sm shadow-stone-200/20">
+<div class="flex justify-between items-center w-full px-5 py-4 max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors active:scale-95 duration-200 rounded-lg">
+<span class="material-symbols-outlined text-stone-800 dark:text-stone-100" data-icon="menu_book">menu_book</span>
+</div>
+<h1 class="text-2xl font-semibold text-stone-800 dark:text-stone-100 tracking-tighter font-inter">Lume</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden active:scale-95 duration-200 cursor-pointer">
+<img alt="사용자 프로필" class="w-full h-full object-cover" data-alt="Close-up portrait of a woman with natural lighting in a cozy cafe setting, soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYaII5S03ueFWU_HmyQbM48dwAL10DV34vFunVzPet6QKx-08cpwj6n9Qym32uPm4ZUb9VngmrW-p1MTEGFV74dPZ9r0lktOt3PZ3ILAxqcmyvRasAGalKHr-rc68q6-3uXG3A7C7Nn3OUCRr6j_pluaTdtKUWe8TAgYZVw8AkA3m-D707X4pwLeBOnFT_GjEp8qGyqESGjFqve-W_iUruF6wax6BAXp_6ylO4lm6xCgrtpxHjNGHxwKXRrxi9vv4AnshXrsk74nE"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-24 px-container-padding max-w-screen-md mx-auto w-full">
+<!-- Hero/Category Section -->
+<section class="mb-section-margin">
+<div class="flex flex-col gap-2">
+<h2 class="font-h1 text-h1 text-on-surface">블로그</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[80%]">일상의 기록과 생각들을 담는 공간입니다.</p>
+</div>
+<div class="flex gap-2 mt-6 overflow-x-auto pb-2 scrollbar-hide">
+<span class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">전체 글</span>
+<span class="bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">미니멀리즘</span>
+<span class="bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">철학</span>
+<span class="bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">독서</span>
+</div>
+</section>
+<!-- Blog Posts Feed -->
+<div class="flex flex-col gap-6">
+<!-- Featured Item - Asymmetric Layout -->
+<article class="group cursor-pointer">
+<div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-4 soft-shadow">
+<img alt="Post Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Overhead view of a minimalist desk with a fountain pen, open notebook, and a ceramic mug on warm wood surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1yziRuBQIRZlvEMMOj2eiRCz9S1JbvvF9MnFOJc4Rx1QDV5twd4RmaoMph2nVMs4Bh2gv4R9FlmdZeBUqllNH39usPeUX0zJoC0Jnwl2xztR1RNHUYvBAwZC866VP2U7to-j1oMhhjCTWxC4xrxWjEV91PJq20Oinz5wSurgPkQfIfqL83NLbCvpMZ_LI0PxavxlYAs036k_4dp6ptheciopvIUhQHf6IHlZCiRX_c4vTN__dSNYgbgYpPVTw2NRFFJls2kTSU6o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">철학</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<time class="font-label-sm text-label-sm text-on-surface-variant">2시간 전</time>
+</div>
+<h3 class="font-h2 text-h2 text-on-surface group-hover:text-primary transition-colors">의도적으로 살아가는 법</h3>
+</div>
+</article>
+<!-- Grid of Secondary Posts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+<!-- Post 1 -->
+<article class="bg-[#F5F5DC] p-5 rounded-xl soft-shadow flex flex-col justify-between min-h-[160px] group cursor-pointer active:scale-[0.98] transition-all">
+<div>
+<time class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">5시간 전</time>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-snug">새벽의 평온함 속에서 찾는 아침 의식</h3>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">라이프스타일</span>
+<span class="material-symbols-outlined text-primary/60 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="bg-[#F5F5DC] p-5 rounded-xl soft-shadow flex flex-col justify-between min-h-[160px] group cursor-pointer active:scale-[0.98] transition-all">
+<div>
+<time class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">어제</time>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-snug">집중력을 높여주는 나만의 디지털 서재</h3>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">생산성</span>
+<span class="material-symbols-outlined text-primary/60 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="bg-[#F5F5DC] p-5 rounded-xl soft-shadow flex flex-col justify-between min-h-[160px] group cursor-pointer active:scale-[0.98] transition-all">
+<div>
+<time class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">2일 전</time>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-snug">종이의 질감이 여전히 사랑받는 이유</h3>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">문화</span>
+<span class="material-symbols-outlined text-primary/60 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="bg-[#F5F5DC] p-5 rounded-xl soft-shadow flex flex-col justify-between min-h-[160px] group cursor-pointer active:scale-[0.98] transition-all">
+<div>
+<time class="font-label-sm text-label-sm text-on-surface-variant mb-2 block">3일 전</time>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface leading-snug">비 오는 오후의 뜻밖의 즐거움</h3>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">에세이</span>
+<span class="material-symbols-outlined text-primary/60 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- FAB - Contextual for Writing -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center hover:shadow-2xl transition-all active:scale-90 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="edit_note">edit_note</span>
+</button>
+<!-- BottomNavBar Section -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#FAF9F6]/90 dark:bg-stone-950/90 backdrop-blur-md border-t border-stone-200/60 dark:border-stone-800/60 shadow-[0_-4px_12px_rgba(210,180,140,0.05)]">
+<div class="flex justify-around items-center px-6 py-3 pb-safe max-w-screen-xl mx-auto">
+<!-- Home Active Tab -->
+<a class="flex flex-col items-center justify-center text-amber-800 dark:text-amber-200 bg-amber-100/50 dark:bg-amber-900/20 rounded-xl px-4 py-1.5 tap-highlight-transparent active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5" data-icon="home">home</span>
+<span class="font-inter text-[11px] font-medium">홈</span>
+</a>
+<!-- Write Tab -->
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-1.5 hover:text-stone-800 dark:hover:text-stone-200 tap-highlight-transparent active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5" data-icon="edit_note">edit_note</span>
+<span class="font-inter text-[11px] font-medium">글쓰기</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-1.5 hover:text-stone-800 dark:hover:text-stone-200 tap-highlight-transparent active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5" data-icon="person">person</span>
+<span class="font-inter text-[11px] font-medium">프로필</span>
+</a>
+</div>
+</nav>
+</body></html>
