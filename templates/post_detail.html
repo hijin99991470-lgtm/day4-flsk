@@ -14,6 +14,13 @@
         <h1 class="text-3xl font-semibold tracking-tight mb-3">{{ post['title'] }}</h1>
         <p class="text-sm text-stone-400 mb-6">{{ post['created_at'] }}</p>
         <div class="text-stone-700 whitespace-pre-wrap leading-7">{{ post['content'] }}</div>
+
+        <div class="mt-6 flex gap-3">
+          <a href="{{ url_for('post_edit', post_id=post['id']) }}" class="px-4 py-2 rounded-xl border border-stone-300">수정</a>
+          <form method="post" action="{{ url_for('post_delete', post_id=post['id']) }}" onsubmit="return confirm('정말 삭제할까요?')">
+            <button type="submit" class="px-4 py-2 rounded-xl bg-red-600 text-white">삭제</button>
+          </form>
+        </div>
       </article>
     </main>
   </body>

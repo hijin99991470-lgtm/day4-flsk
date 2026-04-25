@@ -65,7 +65,42 @@ def post_create():
 
         return redirect(url_for("post_list"))
 
-    return render_template("post_form.html")
+    return render_template("write.html", mode="create", post=None)
+
+
+@app.route("/posts/<int:post_id>/edit", methods=["GET", "POST"])
+def post_edit(post_id):
+    db = get_db()
+    post = db.execute(
+        "SELECT id, title, content, created_at FROM posts WHERE id = ?",
+        (post_id,),
+    ).fetchone()
+
+    if post is None:
+        abort(404)
+
+    if request.method == "POST":
+        title = request.form["title"].strip()
+        content = request.form["content"].strip()
+
+        if title and content:
+            db.execute(
+                "UPDATE posts SET title = ?, content = ? WHERE id = ?",
+                (title, content, post_id),
+            )
+            db.commit()
+
+        return redirect(url_for("post_detail", post_id=post_id))
+
+    return render_template("write.html", mode="edit", post=post)
+
+
+@app.route("/posts/<int:post_id>/delete", methods=["POST"])
+def post_delete(post_id):
+    db = get_db()
+    db.execute("DELETE FROM posts WHERE id = ?", (post_id,))
+    db.commit()
+    return redirect(url_for("post_list"))
 
 
 @app.route("/posts/<int:post_id>")
