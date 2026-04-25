@@ -1,10 +1,11 @@
+import os
 import sqlite3
 from pathlib import Path
 
 from flask import Flask, abort, g, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-app.config["DATABASE"] = str(Path(__file__).with_name("board.db"))
+app.config["DATABASE"] = os.getenv("DATABASE_PATH", str(Path(__file__).with_name("board.db")))
 
 
 def get_db():
