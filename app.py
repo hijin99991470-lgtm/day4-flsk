@@ -153,6 +153,10 @@ def post_detail(post_id):
 with app.app_context():
     init_db()
 
+    from seed import seed
+    with app.app_context():
+        seed()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
