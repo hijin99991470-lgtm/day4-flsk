@@ -154,8 +154,7 @@ with app.app_context():
     init_db()
 
     from seed import seed
-    with app.app_context():
-        seed()
+    seed()
 
 
 if __name__ == "__main__":

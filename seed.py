@@ -1,12 +1,15 @@
 import sys
 import io
+import os
 import sqlite3
+from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 from crawler import fetch_news
 
-DB_PATH = "board.db"
+DB_PATH = os.getenv("DATABASE_PATH", str(Path(__file__).with_name("board.db")))
 
 
 def seed():
