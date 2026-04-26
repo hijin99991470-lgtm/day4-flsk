@@ -44,10 +44,43 @@ def home():
 
 @app.route("/posts")
 def post_list():
-    posts = get_db().execute(
-        "SELECT id, title, content, created_at FROM posts ORDER BY id DESC"
-    ).fetchall()
-    return render_template("posts_list.html", posts=posts)
+    page = request.args.get("page", 1, type=int)
+    query = request.args.get("q", "").strip()
+    sort = request.args.get("sort", "latest")
+    per_page = 5
+    db = get_db()
+
+    order_map = {"latest": "id DESC", "oldest": "id ASC", "title": "title ASC"}
+    order = order_map.get(sort, "id DESC")
+
+    if query:
+        like = f"%{query}%"
+        total = db.execute(
+            "SELECT COUNT(*) FROM posts WHERE title LIKE ? OR content LIKE ?",
+            (like, like),
+        ).fetchone()[0]
+        posts = db.execute(
+            f"SELECT id, title, content, created_at FROM posts WHERE title LIKE ? OR content LIKE ? ORDER BY {order} LIMIT ? OFFSET ?",
+            (like, like, per_page, (page - 1) * per_page),
+        ).fetchall()
+    else:
+        total = db.execute("SELECT COUNT(*) FROM posts").fetchone()[0]
+        posts = db.execute(
+            f"SELECT id, title, content, created_at FROM posts ORDER BY {order} LIMIT ? OFFSET ?",
+            (per_page, (page - 1) * per_page),
+        ).fetchall()
+
+    total_pages = max(1, (total + per_page - 1) // per_page)
+    page = min(max(page, 1), total_pages)
+
+    return render_template(
+        "posts_list.html",
+        posts=posts,
+        page=page,
+        total_pages=total_pages,
+        query=query,
+        sort=sort,
+    )
 
 
 @app.route("/posts/new", methods=["GET", "POST"])
